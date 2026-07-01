@@ -63,11 +63,17 @@ An AI-Powered Meeting Platform built with the MERN Stack, enabling users to crea
 
 ## 📸 Screenshots
 
-### 🏠 Dashboard
-<img width="800" alt="Dashboard Screenshot" src="YOUR_SCREENSHOT_LINK">
+### 🏠 Login
+<img width="800" alt="Login page Screenshot" src="<img width="1920" height="1080" alt="Screenshot (285)" src="https://github.com/user-attachments/assets/c3cea4cc-0b8b-4fba-8e73-82001c805e8d" />
+">
 
-### 🎥 Meeting Room
-<img width="800" alt="Meeting Room Screenshot" src="YOUR_SCREENSHOT_LINK">
+### 🎥 Dashboard
+<img width="800" alt="Dashboard Screenshot" src="<img width="1920" height="1080" alt="Screenshot (288)" src="https://github.com/user-attachments/assets/b2a36328-8e01-4790-a36f-533eaa16a7f3" />
+">
+
+### 🎥 Meeting room
+<img width="800" alt="Dashboard Screenshot" src="<img width="1920" height="1080" alt="Screenshot (289)" src="https://github.com/user-attachments/assets/787ab29c-3972-4bd6-a811-a310269797fa" />
+">
 
 ---
 
