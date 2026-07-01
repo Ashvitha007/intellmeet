@@ -52,7 +52,7 @@ const Dashboard = ({ onJoinMeeting }: { onJoinMeeting: (code: string, name: stri
     setTitle('')
     fetchMeetings()
     alert('Meeting Created! 🎉')
-  } catch (err) {
+ } catch (err: any) {
   console.log("FULL ERROR:", err)
   console.log("RESPONSE:", err.response)
   alert("Create Meeting Failed")
