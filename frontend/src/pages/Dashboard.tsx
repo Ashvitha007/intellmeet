@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import ChatBox from '../components/ChatBox'
+ 
+const API_URL = import.meta.env.VITE_API_URL
 
 const Dashboard = ({ onJoinMeeting }: { onJoinMeeting: (code: string, name: string) => void }) => {
   const [meetings, setMeetings] = useState([])
@@ -17,7 +19,7 @@ const Dashboard = ({ onJoinMeeting }: { onJoinMeeting: (code: string, name: stri
 
   const fetchProfile = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/auth/profile', {
+      const res = await axios.get(`${API_URL}/api/auth/profile`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setUser(res.data)
@@ -28,7 +30,7 @@ const Dashboard = ({ onJoinMeeting }: { onJoinMeeting: (code: string, name: stri
 
   const fetchMeetings = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/meetings', {
+      const res = await axios.get(`${API_URL}/api/meetings`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setMeetings(res.data)
@@ -37,19 +39,25 @@ const Dashboard = ({ onJoinMeeting }: { onJoinMeeting: (code: string, name: stri
     }
   }
 
-  const createMeeting = async () => {
-    try {
-      await axios.post('http://localhost:5000/api/meetings',
-        { title },
-        { headers: { Authorization: `Bearer ${token}` } }
-      )
-      setTitle('')
-      fetchMeetings()
-      alert('Meeting Created! 🎉')
-    } catch (err) {
-      console.log(err)
-    }
-  }
+ const createMeeting = async () => {
+  try {
+    const res = await axios.post(
+      `${API_URL}/api/meetings`,
+      { title },
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
+
+    console.log("Created:", res.data)
+
+    setTitle('')
+    fetchMeetings()
+    alert('Meeting Created! 🎉')
+  } catch (err) {
+  console.log("FULL ERROR:", err)
+  console.log("RESPONSE:", err.response)
+  alert("Create Meeting Failed")
+}
+}
 
   return (
     <div style={{ padding: '20px', background: '#16213e', minHeight: '100vh', color: 'white' }}>
