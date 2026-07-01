@@ -5,7 +5,8 @@ const {
   getMeetings,
   getMeetingById,
   updateMeeting,
-  deleteMeeting
+  deleteMeeting,
+  generateMeetingSummary
 } = require('../controllers/meetingController');
 const { protect } = require('../middleware/authMiddleware');
 
@@ -14,5 +15,6 @@ router.get('/', protect, getMeetings);
 router.get('/:id', protect, getMeetingById);
 router.put('/:id', protect, updateMeeting);
 router.delete('/:id', protect, deleteMeeting);
+router.post('/summary', protect, generateMeetingSummary);
 
 module.exports = router;
